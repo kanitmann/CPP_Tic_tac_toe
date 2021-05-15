@@ -7,7 +7,7 @@ int state[][3] = {{9, 9, 9}, {9, 9, 9}, {9, 9, 9}};
 
 int win_checker(int board[][3], int m)
 {
-    cout << "\n \t Winchecker working";
+    cout << "\n \t Winchecker working"<<endl;
     return 0;
 }
 
