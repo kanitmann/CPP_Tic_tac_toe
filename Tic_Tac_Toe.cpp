@@ -26,12 +26,12 @@ char printer(char board[][3], int m)
 
 int placeO(char board[][3], int m, int i)
 {
-
+    return board[][3];
 }
 
 int placeX(char board[][3], int m, int i)
 {
-
+    return board[][3];
 }
 
 int main()
@@ -45,7 +45,7 @@ int main()
     for(int i = 0 ; i < 9 ; i++)
     {
         cin >> place;
-        i%2==0 ? placeO(board ,m , i) : placeX(board ,m, i); 
+        i%2==0 ? board[][3] = placeO(board ,m , i) : board[][3] = placeX(board ,m, i); 
     }
     return 0;
 }
