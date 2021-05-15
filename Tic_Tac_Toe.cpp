@@ -9,7 +9,7 @@ int win_checker(int state[][3], int m)
 {
     if((state[0][0]==1 && state[1][1]==1 && state[2][2]==1)||(state[0][0]==1 && state[0][1]==1 && state[0][2]==1)||(state[0][0]==1 && state[1][0]==1 && state[2][0]==1)||(state[1][0]==1 && state[1][1]==1 && state[1][2]==1)||(state[2][0]==1 && state[2][1]==1 && state[2][2]==1)||(state[1][0]==1 && state[1][1]==1 && state[1][2]==1)||(state[2][0]==1 && state[2][1]==1 && state[2][2]==1)||(state[0][2]==1 && state[1][1]==1 && state[2][1]==1)||(state[0][0]==0 && state[1][1]==0 && state[2][2]==0)||(state[0][0]==0 && state[1][0]==0 && state[2][0]==0)||(state[1][0]==1 && state[1][1]==0 && state[1][2]==0)||(state[2][0]==0 && state[2][1]==0 && state[2][2]==0)||(state[0][0]==0 && state[0][1]==0 && state[0][2]==0)||(state[1][0]==0 && state[1][1]==0 && state[1][2]==0)||(state[2][0]==0 && state[2][1]==0 && state[2][2]==0)||(state[0][2]==0 && state[1][1]==0 && state[2][1]==0))
     {
-        cout << "\n\n\tWinner found\n\n";
+        cout << "\n\n\tWinner found!!!\n\n";
         return 1;
     }
     else
