@@ -7,14 +7,14 @@ int state[][3] = {{9, 9, 9}, {9, 9, 9}, {9, 9, 9}};
 
 int win_checker(int state[][3], int m)
 {
-    if((state[0][0]==1 && state[1][1]==1 && state[2][2]==1)||(state[0][0]==1 && state[0][1]==1 && state[0][2]==1)||(state[0][0]==1 && state[1][0]==1 && state[2][0]==1)||(state[1][0]==1 && state[1][1]==1 && state[1][2]==1)||(state[2][0]==1 && state[2][1]==1 && state[2][2]==1)||(state[1][0]==1 && state[1][1]==1 && state[1][2]==1)||(state[2][0]==1 && state[2][1]==1 && state[2][2]==1)||(state[0][2]==1 && state[1][1]==1 && state[2][1]==1)||(state[0][0]==0 && state[1][1]==0 && state[2][2]==0)||(state[0][0]==0 && state[1][0]==0 && state[2][0]==0)||(state[1][0]==1 && state[1][1]==0 && state[1][2]==0)||(state[2][0]==0 && state[2][1]==0 && state[2][2]==0)||(state[0][0]==0 && state[0][1]==0 && state[0][2]==0)||(state[1][0]==0 && state[1][1]==0 && state[1][2]==0)||(state[2][0]==0 && state[2][1]==0 && state[2][2]==0)||(state[0][2]==0 && state[1][1]==0 && state[2][1]==0))
+    if ((state[0][0] == 1 && state[1][1] == 1 && state[2][2] == 1) || (state[0][0] == 1 && state[0][1] == 1 && state[0][2] == 1) || (state[0][0] == 1 && state[1][0] == 1 && state[2][0] == 1) || (state[1][0] == 1 && state[1][1] == 1 && state[1][2] == 1) || (state[2][0] == 1 && state[2][1] == 1 && state[2][2] == 1) || (state[1][0] == 1 && state[1][1] == 1 && state[1][2] == 1) || (state[2][0] == 1 && state[2][1] == 1 && state[2][2] == 1) || (state[0][2] == 1 && state[1][1] == 1 && state[2][1] == 1) || (state[0][0] == 0 && state[1][1] == 0 && state[2][2] == 0) || (state[0][0] == 0 && state[1][0] == 0 && state[2][0] == 0) || (state[1][0] == 1 && state[1][1] == 0 && state[1][2] == 0) || (state[2][0] == 0 && state[2][1] == 0 && state[2][2] == 0) || (state[0][0] == 0 && state[0][1] == 0 && state[0][2] == 0) || (state[1][0] == 0 && state[1][1] == 0 && state[1][2] == 0) || (state[2][0] == 0 && state[2][1] == 0 && state[2][2] == 0) || (state[0][2] == 0 && state[1][1] == 0 && state[2][1] == 0))
     {
         cout << "\n\n\tWinner found!!!\n\n";
         return 1;
     }
     else
     {
-        cout<<"\nRunning Win_Checker!!\n";
+        cout << "\nRunning Win_Checker!!\n";
         return 0;
     }
 }
@@ -60,7 +60,7 @@ XAction:
     }
 
     winner = win_checker(state, 3);
-    if(winner==1)
+    if (winner == 1)
         return 1;
     else
         return 0;
@@ -76,7 +76,7 @@ int main()
     for (int i = 0; i < 9; i++)
     {
         win = placement(board, m, i % 2);
-        if(win == 1)
+        if (win == 1)
             break;
     }
 
