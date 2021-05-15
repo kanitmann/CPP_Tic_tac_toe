@@ -2,15 +2,16 @@
 
 using namespace std;
 
-char board[][3] = {{'1','2','3'},{'4','5','6'},{'7','8','9'}};
-int state[][3] = {{'0','0','0'},{'0','0','0'},{'0','0','0'}};
+int board[][3] = {{1,2,3},{4,5,6},{7,8,9}};
+int state[][3] = {{9,9,9},{9,9,9},{9,9,9}};
 
-int win_checker()
-{
+int win_checker(int board[][3], int m)
+{   
+    cout<<"\n\tWinchecker working";
     return 0;
 }
 
-char printer(char board[][3], int m)
+int printer(int board[][3], int m)
 {
     cout<<endl<<"---------------------"<<endl;
     for(int i = 0; i < 3; i++)
@@ -27,13 +28,34 @@ char printer(char board[][3], int m)
     return '0';
 }
 
-int placeO(char board[][3], int m, int i)
+int placeO(int board[][3], int m, int i)
 {
+    int check = 0;
+    cout<<"0's turn"<<endl;
+    OAction:
+    cout<<"\nWhere would you like to place '0'?";
+    int place = 7;
+    for(int i = 1; i<=9 ; i++)
+    {
+        if(i==place)
+            {
+                state[int(i/3)][i%3-1]=0; 
+                check = 1;
+                break;
+            }
+    }
+    if(check==0)
+    {
+        cout<<"\nAlready filled or point not valid, please retry.";
+        goto OAction;
+    }
+    win_checker(::board,3);
     return 0;
 }
 
-int placeX(char board[][3], int m, int i)
+int placeX(int board[][3], int m, int i)
 {
+    cout<<"1's turn"<<endl;
     return 0;
 }
 
@@ -45,8 +67,10 @@ int main()
     printer(board, m);
     for(int i = 0 ; i < 9 ; i++)
     {
-        cin >> place;
         i%2==0 ? placeO(board ,m , i) : placeX(board ,m, i); 
     }
+
+    cout<<"Printing Final:\n ";
+    printer(state,m);
     return 0;
 }
