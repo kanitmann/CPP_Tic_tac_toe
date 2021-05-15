@@ -1,61 +1,58 @@
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
-int board[][3] = {{1,2,3},{4,5,6},{7,8,9}};
-int state[][3] = {{9,9,9},{9,9,9},{9,9,9}};
+int board[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+int state[][3] = {{9, 9, 9}, {9, 9, 9}, {9, 9, 9}};
 
 int win_checker(int board[][3], int m)
-{   
-    cout<<"\n\tWinchecker working";
+{
+    cout << "\n \t Winchecker working";
     return 0;
 }
 
 int printer(int board[][3], int m)
 {
-    cout<<endl<<"---------------------"<<endl;
-    for(int i = 0; i < 3; i++)
+    cout << endl
+         << "---------------------" << endl;
+    for (int i = 0; i < 3; i++)
     {
 
-        for(int j=0; j < 3 ; j++)
+        for (int j = 0; j < 3; j++)
         {
-            cout<<" | "<<board[i][j]<<" | ";
+            cout << " | " << board[i][j] << " | ";
         }
-        cout<<endl<<"---------------------"<<endl;
-
-
+        cout << endl
+             << "---------------------" << endl;
     }
-    return '0';
-}
-
-int placeO(int board[][3], int m, int i)
-{
-    int check = 0;
-    cout<<"0's turn"<<endl;
-    OAction:
-    cout<<"\nWhere would you like to place '0'?";
-    int place = 7;
-    for(int i = 1; i<=9 ; i++)
-    {
-        if(i==place)
-            {
-                state[int(i/3)][i%3-1]=0; 
-                check = 1;
-                break;
-            }
-    }
-    if(check==0)
-    {
-        cout<<"\nAlready filled or point not valid, please retry.";
-        goto OAction;
-    }
-    win_checker(::board,3);
     return 0;
 }
 
-int placeX(int board[][3], int m, int i)
+int placement(int board[][3], int m, int i)
 {
-    cout<<"1's turn"<<endl;
+    int place;
+    cout << i << "'s turn" << endl;
+
+XAction:
+    cout << "\nWhere would you like to place '" << i << "'?";
+    cin >> place;
+    if (state[int(place / 3)][place % 3 - 1] == 0 || state[int(place / 3)][place % 3 - 1] == 1)
+    {
+        cout << "\nAlready filled or point not valid, please retry.";
+        goto XAction;
+    }
+
+    for (int j = 1; j <= 9; j++)
+    {
+        if (j == place)
+        {
+            state[int(j / 3)][j % 3 - 1] = i;
+            printer(state, m);
+            break;
+        }
+    }
+
+    win_checker(::board, 3);
     return 0;
 }
 
@@ -63,14 +60,14 @@ int main()
 {
     int m = 3;
     int place = 0;
-    cout<<"Welcome to Tic Tac Toe";
+    cout << "Welcome to Tic Tac Toe";
     printer(board, m);
-    for(int i = 0 ; i < 9 ; i++)
+    for (int i = 0; i < 9; i++)
     {
-        i%2==0 ? placeO(board ,m , i) : placeX(board ,m, i); 
+        placement(board, m, i % 2);
     }
 
-    cout<<"Printing Final:\n ";
-    printer(state,m);
+    cout << "Printing Final:\n ";
+    printer(state, m);
     return 0;
 }
